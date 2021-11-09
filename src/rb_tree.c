@@ -75,44 +75,34 @@ static void rb_rotate_right(rb_tree_t * tree, Node_t * x){
 
 static void rb_insert_fix(rb_tree_t * tree, Node_t * x){
   while (x != tree->root && x->parent->color == RED){
-    /* we have a violation */
     if (x->parent == x->parent->parent->left){
       Node_t *y = x->parent->parent->right;
       if (y->color == RED){
-
-        /* uncle is RED */
         x->parent->color = BLACK;
         y->color = BLACK;
         x->parent->parent->color = RED;
         x = x->parent->parent;
       }
       else{
-
-        /* uncle is BLACK */
         if (x == x->parent->right){
-          /* make x a left child */
           x = x->parent;
           rb_rotate_left(tree, x);
         }
 
-        /* recolor and rotate */
         x->parent->color = BLACK;
         x->parent->parent->color = RED;
         rb_rotate_right(tree, x->parent->parent);
       }
     }
     else{
-      /* mirror image of above code */
       Node_t *y = x->parent->parent->left;
       if (y->color == RED){
-        /* uncle is RED */
         x->parent->color = BLACK;
         y->color = BLACK;
         x->parent->parent->color = RED;
         x = x->parent->parent;
       }
       else{
-        /* uncle is BLACK */
         if (x == x->parent->left){
           x = x->parent;
           rb_rotate_right(tree, x);
@@ -146,7 +136,6 @@ static Node_t * rb_insert(rb_tree_t * tree, const order_t * order, compare_fn co
     }
   }
 
-  /* setup new node */
   x = rb_create_node(order, parent);
   if(!x){
     fprintf(stderr, "Could not allocate memory\n");

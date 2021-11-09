@@ -37,7 +37,7 @@ int stock_utils_print_trade(FILE *out_fp, const trade_t * const trade);
  * 
  * @param out_fp output file
  * @param order_id id of order that was canceled
- * @return int int 0 - ok, else - error
+ * @return int 0 - ok, else - error
  */
 int stock_utils_print_cancel(FILE *out_fp, uint64_t order_id);
 

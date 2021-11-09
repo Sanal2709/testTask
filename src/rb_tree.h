@@ -69,7 +69,7 @@ order_t * rb_search_order(rb_tree_t * rb_tree, order_t * order);
  * 
  * @param rb_tree pointer to the rb Tree
  * @param order income order
- * @return None
+ * @return order_t* minimum order
  */
 order_t * rb_get_min(rb_tree_t * rb_tree);
 
@@ -78,7 +78,7 @@ order_t * rb_get_min(rb_tree_t * rb_tree);
  * 
  * @param rb_tree pointer to the rb Tree
  * @param order income order
- * @return None
+ * @return order_t* maximum order
  */
 order_t * rb_get_max(rb_tree_t * rb_tree);
 
